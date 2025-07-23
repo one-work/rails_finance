@@ -1,0 +1,27 @@
+<td><%= link_to model.subject, { action: 'show', id: model.id } %></td>
+<td><%= model.amount %></td>
+<td>
+  <span class="tag"><%= model.state_i18n %></span>
+  <% model.all_verifications.each do |verification| %>
+    <p>
+      <%= verification.job_title&.name %>
+      <%= verification.member&.name %>
+      <span class="tag"><%= verification.confirmed_i18n %></span>
+    </p>
+  <% end %>
+</td>
+<td>
+  <div data-show-target="item" class="visibility-hidden">
+    <%= link_to({ controller: 'auditor/admin/audits', audited_type: model.class.base_class.name, audited_id: model.id }, data: { turbo_frame: 'modal' }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fa-regular fa-clock"></i>
+    <% end %>
+    <% if ['init', 'rejected'].include? model.state %>
+      <%= button_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.destroy.confirm') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    <% end %>
+  </div>
+</td>

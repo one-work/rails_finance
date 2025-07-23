@@ -4,3 +4,4 @@
 <td><%= model.expense_amount %></td>
 <td><%= model.note %></td>
 <td><%= model.member&.name %></td>
+<td><%= render partial: 'index_tr_actions', locals: { model: model } %></td>
