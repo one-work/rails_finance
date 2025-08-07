@@ -43,12 +43,12 @@
   <% end %>
 </td>
 <td>
-  <%= link_to 'items', items_my_expense_member_path(expense_member), class: 'button is-small is-rounded is-light' %>
-  <%= link_to edit_finance_expense_member_path(expense_member), aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light' do %>
+  <%= link_to 'items', items_my_expense_member_path(expense_member), class: 'button is-small is-borderless' %>
+  <%= link_to edit_finance_expense_member_path(expense_member), aria: { label: t('.edit.title') }, class: 'button is-small is-borderless' do %>
     <i class="fa-solid fa-pencil"></i>
   <% end %>
-  <%= link_to finance_expense_member_path(expense_member), method: :delete, data: { turbo_confirm: t('.destroy.confirm') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-solid fa-trash"></i>
+  <%= link_to finance_expense_member_path(expense_member), method: :delete, data: { turbo_confirm: t('.destroy.confirm') }, class: 'button is-small is-borderless' do %>
+    <%= svg_tag 'trash', class: 'icon' %>
   <% end %>
 </td>
 <td><%= render partial: 'index_tr_actions', locals: { model: model } %></td>
