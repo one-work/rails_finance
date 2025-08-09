@@ -1,0 +1,22 @@
+<div class="fixed-grid has-6-cols">
+  <div class="grid">
+    <%= link_to({ controller: 'finance/admin/taxons' }, data: { turbo_frame: 'body', action: 'menu-popup#enter' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('finance.admin.taxons.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'finance/admin/assessments' }, data: { turbo_frame: 'body', action: 'menu-popup#enter' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('finance.admin.assessments.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'finance/admin/funds' }, data: { turbo_frame: 'body', action: 'menu-popup#enter' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('finance.admin.funds.index.title') %></span>
+    <% end %>
+  </div>
+  <div class="grid">
+    <%= link_to({ controller: 'finance/admin/expenses' }, data: { turbo_frame: 'body', action: 'menu-popup#enter' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('finance.admin.expenses.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'finance/admin/budgets' }, data: { turbo_frame: 'body', action: 'menu-popup#enter' }, class: active_helper(controllers: 'budgets', item: 'menu-item', active: 'menu-item is-active')) do %>
+      <span><%= t('finance.admin.budgets.index.title') %></span>
+    <% end %>
+  </div>
+</div>
+
