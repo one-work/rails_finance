@@ -48,7 +48,7 @@
     <i class="fa-solid fa-pencil"></i>
   <% end %>
   <%= link_to finance_expense_member_path(expense_member), method: :delete, data: { turbo_confirm: t('.destroy.confirm') }, class: 'button is-small is-borderless' do %>
-    <%= svg_tag 'trash', class: 'icon' %>
+    <%= svg_tag 'trash' %>
   <% end %>
 </td>
 <td><%= render partial: 'index_tr_actions', locals: { model: model } %></td>
