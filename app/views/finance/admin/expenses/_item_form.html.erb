@@ -12,7 +12,7 @@
     <%= ef.number_field :amount, data: { action: 'expense#updateAmount' } %>
     <div class="field has-addons has-addons-middle">
       <%= svg_tag 'plus', data: { action: 'click->field#add' }, class: 'icon clickable' %>
-      <%= svg_tag 'munus', data: { action: 'click->field#remove' }, class: 'icon clickable ml-2' %>
+      <%= svg_tag 'minus', data: { action: 'click->field#remove' }, class: 'icon clickable ml-2' %>
     </div>
   </div>
 </div>
