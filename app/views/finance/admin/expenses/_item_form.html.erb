@@ -11,8 +11,8 @@
     <%= ef.number_field :price, data: { action: 'expense#updatePrice' } %>
     <%= ef.number_field :amount, data: { action: 'expense#updateAmount' } %>
     <div class="field has-addons has-addons-middle">
-      <i class="fa-solid fa-lg fa-plus" style="cursor: pointer" data-action="click->field#add"></i>
-      <i class="fa-solid fa-lg fa-minus" style="cursor: pointer" data-action="click->field#remove"></i>
+      <%= svg_tag 'plus', data: { action: 'click->field#add' }, class: 'icon clickable' %>
+      <%= svg_tag 'munus', data: { action: 'click->field#remove' }, class: 'icon clickable ml-2' %>
     </div>
   </div>
 </div>

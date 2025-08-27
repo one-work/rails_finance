@@ -10,8 +10,8 @@
   <%= ef.number_field :price, step: 0.01, data: { coeff_target: 'single', action: 'coeff#updateSingle' } %>
   <%= ef.number_field :budget_amount, step: 0.01, data: { coeff_target: 'total', action: 'coeff#updateTotal' } %>
   <div class="field has-addons has-addons-middle">
-    <i class="fa-solid fa-lg fa-plus" data-action="click->field#add" style="cursor: pointer"></i>
-    <i class="fa-solid fa-lg fa-minus" data-action="click->field#add" style="cursor: pointer"></i>
+    <%= svg_tag 'plus', data: { action: 'click->field#add' }, class: 'icon clickable' %>
+    <%= svg_tag 'munus', data: { action: 'click->field#remove' }, class: 'icon clickable ml-2' %>
   </div>
   </div>
 </div>
