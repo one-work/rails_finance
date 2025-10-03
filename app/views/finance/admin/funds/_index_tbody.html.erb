@@ -12,4 +12,3 @@
 <td><%= link_to model.expense_amount, { controller: 'expenses', fund_id: model.id }, text: true %></td>
 <td><%= simple_format model.expense_detail %></td>
 <td><%= model.note %></td>
-<td><%= render partial: 'index_tr_actions', locals: { model: model } %></td>

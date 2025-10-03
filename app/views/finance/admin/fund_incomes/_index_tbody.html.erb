@@ -3,4 +3,3 @@
 <td>
   <%= link_to model.proof_blob.filename, rails_blob_url(model.proof_blob), target: '_blank' if model.proof.attached? %>
 </td>
-<td><%= render partial: 'index_tr_actions', locals: { model: model } %></td>
