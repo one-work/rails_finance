@@ -102,7 +102,7 @@ module Finance
     end
 
     def amount_cn
-      NumHelper.to_rmb amount&.to_f || 0
+      NumUtil.to_rmb amount&.to_f || 0
     end
 
     def details

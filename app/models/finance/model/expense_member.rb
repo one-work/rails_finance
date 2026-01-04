@@ -78,11 +78,11 @@ module Finance
     end
 
     def amount_cn
-      NumHelper.to_rmb amount.to_f
+      NumUtil.to_rmb amount.to_f
     end
 
     def advance_cn
-      NumHelper.to_rmb advance.to_f
+      NumUtil.to_rmb advance.to_f
     end
 
     def payout_amount
