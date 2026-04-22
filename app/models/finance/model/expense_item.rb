@@ -12,7 +12,7 @@ module Finance
 
       belongs_to :expense, optional: true
       belongs_to :budget, optional: true
-      belongs_to :financial_taxon, optional: true
+      belongs_to :taxon, optional: true
 
       before_save :ensure_amount, if: -> { budget_amount_changed? }
       after_save :sync_budget_amount, if: -> { saved_change_to_budget_amount? }

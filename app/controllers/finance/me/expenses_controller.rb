@@ -51,7 +51,7 @@ module Finance
       else
         @payment_methods = []
       end
-      @taxon_options = FinancialTaxon.roots.map { |i| [i.name, i.id] }
+      @taxon_options = Taxon.roots.map { |i| [i.name, i.id] }
     end
 
     def confirm

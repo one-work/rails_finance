@@ -47,7 +47,7 @@ module Finance
     end
 
     def edit
-      @taxon_options = FinancialTaxon.roots.map { |i| [i.name, i.id] }
+      @taxon_options = Taxon.roots.map { |i| [i.name, i.id] }
     end
 
     def transfer
