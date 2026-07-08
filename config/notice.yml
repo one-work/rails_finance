@@ -1,0 +1,21 @@
+Finance::Budget:
+  default:
+    only: ['subject', 'amount', 'type']
+    methods: ['creator_name', 'state_i18n']
+  request:
+    only: ['subject', 'amount', 'type']
+    methods: ['creator_name']
+Finance::Expense:
+  default:
+    only: ['subject', 'amount', 'type']
+    methods: ['creator_name', 'state_i18n']
+  request:
+    only: ['subject', 'amount', 'type']
+    methods: ['creator_name']
+Finance::ExpenseMember:
+  default:
+    only: ['amount', 'advance']
+    methods: ['expense_subject', 'state_i18n']
+  request:
+    only: ['amount', 'advance']
+    methods: ['member_name', 'expense_subject']

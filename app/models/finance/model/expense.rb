@@ -10,6 +10,16 @@ module Finance
       attribute :note, :string, limit: 4096
       attribute :invoices_count, :integer
 
+      enum :state, {
+        init: 'init',
+        verifying: 'verifying',
+        paying: 'paying',
+        upload_invoice: 'upload_invoice',
+        invoice_verifying: 'invoice_verifying',
+        finished: 'finished',
+        rejected: 'rejected'
+      }, default: 'init'
+
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :creator, class_name: 'Org::Member'
       belongs_to :payment_method, class_name: 'Trade::PaymentMethod', optional: true
@@ -34,27 +44,6 @@ module Finance
 
       has_one_attached :proof
       has_one_attached :invoice
-
-      enum :state, {
-        init: 'init',
-        verifying: 'verifying',
-        paying: 'paying',
-        upload_invoice: 'upload_invoice',
-        invoice_verifying: 'invoice_verifying',
-        finished: 'finished',
-        rejected: 'rejected'
-      }, default: 'init'
-
-      acts_as_notify(
-        :default,
-        only: [:subject, :amount, :type],
-        methods: [:creator_name, :state_i18n]
-      )
-      acts_as_notify(
-        :request,
-        only: [:subject, :amount, :type],
-        methods: [:creator_name]
-      )
 
       before_save :sync_amount
       after_save :sum_amount, if: -> { saved_change_to_amount? }

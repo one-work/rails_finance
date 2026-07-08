@@ -1,6 +1,4 @@
 module Finance
-
-  # 估值
   module Model::Assessment
     extend ActiveSupport::Concern
 

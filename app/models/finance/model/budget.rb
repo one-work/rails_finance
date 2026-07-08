@@ -35,17 +35,6 @@ module Finance
         rejected: 'rejected'
       }, default: 'init'
 
-      acts_as_notify(
-        :default,
-        only: [:subject, :amount, :type],
-        methods: [:creator_name, :state_i18n]
-      )
-      acts_as_notify(
-        :request,
-        only: [:subject, :amount, :type],
-        methods: [:creator_name]
-      )
-
       after_save :sum_amount, if: -> { financial.present? && saved_change_to_amount? }
       after_save :sum_fund_amount, if: -> { fund && saved_change_to_amount? }
       after_save :sum_stock_amount, if: -> { stock && saved_change_to_amount? }

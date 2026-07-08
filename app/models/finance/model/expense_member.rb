@@ -8,15 +8,6 @@ module Finance
       attribute :state, :string
       attribute :note, :string
 
-      belongs_to :member, class_name: 'Org::Member'
-
-      belongs_to :expense
-      belongs_to :payment_method, optional: true
-
-      has_many :expense_items, ->(o){ where(member_id: o.member_id) }, foreign_key: :expense_id, primary_key: :expense_id
-
-      validates :member_id, uniqueness: { scope: [:expense_id] }
-
       enum :state, {
         pending_borrow: 'pending_borrow',
         advance_pay: 'advance_pay',
@@ -26,16 +17,14 @@ module Finance
         paid: 'paid'
       }, default: 'pending_borrow'
 
-      acts_as_notify(
-        :default,
-        only: [:amount, :advance],
-        methods: [:expense_subject, :state_i18n]
-      )
-      acts_as_notify(
-        :request,
-        only: [:amount, :advance],
-        methods: [:member_name, :expense_subject]
-      )
+      belongs_to :member, class_name: 'Org::Member'
+
+      belongs_to :expense
+      belongs_to :payment_method, optional: true
+
+      has_many :expense_items, primary_key: [:member_id, :expense_id], foreign_key: [:member_id, :expense_id]
+
+      validates :member_id, uniqueness: { scope: [:expense_id] }
 
       delegate :subject, to: :expense, prefix: true
       delegate :name, to: :member, prefix: true
