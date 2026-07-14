@@ -94,8 +94,7 @@ module Finance
           to_notification(
             member: next_operator,
             link: url_helpers.finance_expense_url(self.expense_id),
-            code: :request,
-            verbose: true
+            code: :request
           )
         end
       end

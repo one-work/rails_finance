@@ -87,15 +87,13 @@ module Finance
         self.save!
         to_notification(
           member: creator,
-          link: url_helpers.me_expenses_url(id: self.id),
-          verbose: true
+          link: url_helpers.me_expenses_url(id: self.id)
         )
         if next_verifier
           to_notification(
             member: next_verifier.member,
             link: url_helpers.admin_me_expenses_url(id: self.id),
-            code: :request,
-            verbose: true
+            code: :request
           )
         end
       end
