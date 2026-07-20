@@ -2,4 +2,4 @@
 <%= f.text_area :subject, required: true %>
 <%= f.collection_select :financial_taxon_id, @financial_taxons, :id, :name, include_blank: true %>
 <%= f.text_area :note %>
-<%= f.file_field :proof %>
+<%= render partial: 'com/attachments/list_field', locals: { target: f.object.proof, f: f } %>
